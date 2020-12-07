@@ -11,7 +11,7 @@ class NumerosReflejados {
        for ( $i=0; $i < $cantidad+1; $i++){         //Este for nos sirve para llenar los arrays 
            $numerosNormal[$i]=$m;
        $mCadena = (string)$m; // MCADENA = 1 2 8 5 1    
-           for($j=0;$j <= strlen($mCadena);$j++){        //Este for nos sirve para convertir los numeros normales a invertidos  
+           for($j=0;$j < strlen($mCadena);$j++){        //Este for nos sirve para convertir los numeros normales a invertidos  
                switch ($mCadena[$j]){          
                    case '2':
                        $mCadena[$j]='5';
