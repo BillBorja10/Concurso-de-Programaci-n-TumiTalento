@@ -1,22 +1,29 @@
-<?php 
-fscanf(STDIN, "%d\n", $n);
-$arr=array();
-for($i=$n;$i>0;$i--){
-	$arr[]=explode(' ',trim(fgets(STDIN)));                         //lo convierte en un array 
+<?php
+
+function binario($dividendo)
+{
+    $resultadoRestos=array(); 
+    while ($dividendo > 0)
+    {
+        $resultado=$dividendo/2; 
+        $resto=$dividendo%2; 
+        $resultadoRestos[]=$resto; 
+        $dividendo=intval($resultado); 
+    }
+    return($resultadoRestos);
+} 
+function Comparar($M,$P){
+    $arrayM= binario($M);
+    $arrayP= binario($P);
+    $contador=0;
+   foreach($arrayM as $ar1){
+     foreach($arrayP as $ar2){
+          if($ar1!=$ar2){
+          $contador++;
+          }
+        }
 }
-//$arr=array_reverse($arr);
-//var_dump($arr);
-foreach($arr as $stone){                                                //Recorre los arrays para sacar la cantidad de bits de diferencia 
-echo  count_one((int)((int)$stone[0] ^ (int)$stone[1])),PHP_EOL;
+echo $contador; 
 }
-function count_one($n)                                                  //Funcion para la suma de bits         
- {
- 	$count=0;
-	while ($n){
-		$n=$n & ($n-1);
-	$count++;
-		
-	}
-	return $count;
-}
+
 ?>
